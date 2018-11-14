@@ -558,25 +558,25 @@ end;
 
 procedure TFGera.ConfigurePropertyListVO(Classe, Campo, Tamanho, Tipo, GetSet : String);
 begin
-    if Tipo = 'String' then
-    begin
-      if (Campo = 'FONE') or (Campo = 'TELEFONE') or (Campo = 'FAX') or (Campo = 'CELULAR') then
-        ListaPropriedades.add('    [TFormatter(ftTelefone, taLeftJustify)]')
-      else if (Campo = 'CEP') then
-        ListaPropriedades.add('    [TFormatter(ftCep, taLeftJustify)]')
-      else if (Campo = 'CNPJ') then
-        ListaPropriedades.add('    [TFormatter(ftCnpj, taLeftJustify)]')
-      else if (Campo = 'CPF') then
-        ListaPropriedades.add('    [TFormatter(ftCpf, taLeftJustify)]');
-    end
-    else if Tipo = 'Integer' then
-      ListaPropriedades.add('    [TFormatter(ftZerosAEsquerda, taCenter)]')
-    else if Tipo = 'Currency' then
-      ListaPropriedades.add('    [TFormatter(ftFloatComSeparador, taRightJustify)]')
-    else if Tipo = 'Extended' then
-      ListaPropriedades.add('    [TFormatter(ftFloatComSeparador, taRightJustify)]')
-    else if Tipo = 'Double' then
-      ListaPropriedades.add('    [TFormatter(ftFloatComSeparador, taRightJustify)]');
+//    if Tipo = 'String' then
+//    begin
+//      if (Campo = 'FONE') or (Campo = 'TELEFONE') or (Campo = 'FAX') or (Campo = 'CELULAR') then
+//        ListaPropriedades.add('    [TFormatter(ftTelefone, taLeftJustify)]')
+//      else if (Campo = 'CEP') then
+//        ListaPropriedades.add('    [TFormatter(ftCep, taLeftJustify)]')
+//      else if (Campo = 'CNPJ') then
+//        ListaPropriedades.add('    [TFormatter(ftCnpj, taLeftJustify)]')
+//      else if (Campo = 'CPF') then
+//        ListaPropriedades.add('    [TFormatter(ftCpf, taLeftJustify)]');
+//    end
+//    else if Tipo = 'Integer' then
+//      ListaPropriedades.add('    [TFormatter(ftZerosAEsquerda, taCenter)]')
+//    else if Tipo = 'Currency' then
+//      ListaPropriedades.add('    [TFormatter(ftFloatComSeparador, taRightJustify)]')
+//    else if Tipo = 'Extended' then
+//      ListaPropriedades.add('    [TFormatter(ftFloatComSeparador, taRightJustify)]')
+//    else if Tipo = 'Double' then
+//      ListaPropriedades.add('    [TFormatter(ftFloatComSeparador, taRightJustify)]');
 //  end;
   ListaPropriedades.add('    property ' + TrataNomeProperty(Campo) + ': ' + Tipo + ' ' + GetSet);
   ListaCampos.add('    F' + Campo + ': ' + Tipo + ';');
@@ -601,7 +601,7 @@ begin
   memo.Lines.Add('');
 
   memo.Lines.Add('uses');
-  memo.Lines.Add(' Classes,Constantes,Generics.Collections, SysUtils'+VOsTransisente+ListaUser+', SimpleAttributes;');
+  memo.Lines.Add(' SimpleAttributes;');
   memo.Lines.Add('');
 
   memo.Lines.Add('type');
